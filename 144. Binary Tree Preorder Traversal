@@ -1,0 +1,24 @@
+PROBLEM DESCRIPTION :---
+Given the root of a binary tree, return the preorder traversal of its nodes' values
+
+
+CODE :----
+
+class Solution {
+public:
+    void preorderHelper(TreeNode* root, vector<int>& ans) {
+        if (root == nullptr) {
+            return; 
+        }
+
+        ans.push_back(root->val);  
+        preorderHelper(root->left, ans);  
+        preorderHelper(root->right, ans);  
+    }
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ans;  
+        preorderHelper(root, ans);  
+        return ans;
+    }
+};
