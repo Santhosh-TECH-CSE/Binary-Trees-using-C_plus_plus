@@ -1,0 +1,24 @@
+PROBLEM DESCRIPTION :---
+Given the root of a binary tree, return the inorder traversal of its nodes' values.
+
+CODE : ----
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;  
+        inorderHelper(root, result);  
+        return result;
+    }
+
+private:
+    void inorderHelper(TreeNode* root, vector<int>& result) {
+        if (root == nullptr) {
+            return;  
+        }
+
+        inorderHelper(root->left, result);  
+        result.push_back(root->val);  
+        inorderHelper(root->right, result);  
+    }
+};
